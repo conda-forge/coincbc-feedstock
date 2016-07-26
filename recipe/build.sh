@@ -14,6 +14,12 @@ else
   export CXX=
 fi
 
+# Use only 1 thread with OpenBLAS to avoid timeouts on CIs.
+# This should have no other affect on the build. A user
+# should still be able to set this (or not) to a different
+# value at run-time to get the expected amount of parallelism.
+export OPENBLAS_NUM_THREADS=1
+
 WITH_BLAS_LIB="-L${PREFIX}/lib -lopenblas"
 WITH_LAPACK_LIB="-L${PREFIX}/lib -lopenblas"
 
