@@ -21,7 +21,7 @@ fi
 export OPENBLAS_NUM_THREADS=1
 
 WITH_BLAS_LIB="-L${PREFIX}/lib -lopenblas"
-WITH_LAPACK_LIB="-L${PREFIX}/lib -lopenblas"
+WITH_LAPACK_LIB="-L${PREFIX}/lib -llapack"
 
 ls
 
