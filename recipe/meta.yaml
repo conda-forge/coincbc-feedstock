@@ -18,7 +18,7 @@ source:
   sha256: ff6860400a1390170f9cb19fab6f21c1997138d285b5f225be04c4642c9a7bea
 
 build:
-  number: 202
+  number: 203
   skip: true  # [win]
   features:
     - blas_{{ variant }}
@@ -27,12 +27,12 @@ requirements:
   build:
     - gcc
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18|0.2.18.*
+    - openblas 0.2.19|0.2.19.*
     - lapack
   run:
     - libgcc
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18|0.2.18.*
+    - openblas 0.2.19|0.2.19.*
     - lapack
 
 test:
