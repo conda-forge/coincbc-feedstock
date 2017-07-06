@@ -25,11 +25,13 @@ build:
 
 requirements:
   build:
-    - toolchain3
+    - toolchain
+    - gcc
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
     - lapack
   run:
+    - libgcc
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
     - lapack
