@@ -18,7 +18,7 @@ source:
   sha256: ff6860400a1390170f9cb19fab6f21c1997138d285b5f225be04c4642c9a7bea
 
 build:
-  number: 203
+  number: 204
   skip: true  # [win]
   features:
     - blas_{{ variant }}
@@ -50,7 +50,7 @@ test:
 
 about:
   home: http://www.coin-or.org/
-  license: Eclipse Public License v1.0
+  license: Eclipse v1.0
   summary: "Cbc (Coin-or branch and cut) is an open-source mixed integer programming solver written in C++."
 
 extra:
