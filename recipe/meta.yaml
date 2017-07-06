@@ -1,4 +1,4 @@
-{% set version = "2.9.8" %}
+{% set version = "2.9.9" %}
 {% if linux %}
     {% set libext = ".so" %}
 {% else %}
@@ -15,16 +15,17 @@ package:
 source:
   fn: Cbc-{{ version }}.tgz
   url: http://www.coin-or.org/download/source/Cbc/Cbc-{{ version }}.tgz
-  sha256: ff6860400a1390170f9cb19fab6f21c1997138d285b5f225be04c4642c9a7bea
+  sha256: aa8404e49b25853b30ebd6291e3beedc9b5f583e3c0c36822fae17507feb0af1
 
 build:
-  number: 204
+  number: 0
   skip: true  # [win]
   features:
     - blas_{{ variant }}
 
 requirements:
   build:
+    - toolchain
     - gcc
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
