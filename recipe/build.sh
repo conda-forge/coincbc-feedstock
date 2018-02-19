@@ -12,11 +12,12 @@ export CXXFLAGS="${CXXFLAGS} -O3"
 export OPENBLAS_NUM_THREADS=1
 
 WITH_BLAS_LIB="-L${PREFIX}/lib -lopenblas"
-WITH_LAPACK_LIB="-L${PREFIX}/lib -llapack"
+WITH_LAPACK_LIB="-L${PREFIX}/lib -lopenblas"
 
 ./configure --prefix="${PREFIX}" --exec-prefix="${PREFIX}" \
   --with-blas-lib="${WITH_BLAS_LIB}" \
   --with-lapack-lib="${WITH_LAPACK_LIB}" \
+  --enable-cbc-parallel \
   || { cat config.log; exit 1; }
 make -j "${CPU_COUNT}"
 if [ "${UNAME}" == "Linux" ]; then
