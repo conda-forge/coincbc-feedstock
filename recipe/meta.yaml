@@ -25,14 +25,14 @@ build:
 
 requirements:
   build:
-    - toolchain
-    - gcc
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
+    - openblas
   run:
-    - libgcc
     - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
+    - openblas
 
 test:
   commands:
