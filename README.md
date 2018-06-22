@@ -3,7 +3,7 @@ About coincbc
 
 Home: http://www.coin-or.org/
 
-Package license: Eclipse Public License v1.0
+Package license: Eclipse v1.0
 
 Feedstock license: BSD 3-Clause
 
@@ -14,14 +14,16 @@ Summary: Cbc (Coin-or branch and cut) is an open-source mixed integer programmin
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/coincbc-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/coincbc-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/coincbc-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/coincbc-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/coincbc-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/coincbc-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/coincbc-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/coincbc-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/coincbc/badges/version.svg)](https://anaconda.org/conda-forge/coincbc)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/coincbc/badges/downloads.svg)](https://anaconda.org/conda-forge/coincbc)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-coincbc-green.svg)](https://anaconda.org/conda-forge/coincbc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/coincbc.svg)](https://anaconda.org/conda-forge/coincbc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/coincbc.svg)](https://anaconda.org/conda-forge/coincbc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/coincbc.svg)](https://anaconda.org/conda-forge/coincbc) |
 
 Installing coincbc
 ==================
@@ -66,6 +68,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
