@@ -4,6 +4,7 @@ set -e
 UNAME="$(uname)"
 export CFLAGS="${CFLAGS} -O3"
 export CXXFLAGS="${CXXFLAGS} -O3"
+CXXFLAGS="${CXXFLAGS//-std=c++17/-std=c++11}"
 
 # Use only 1 thread with OpenBLAS to avoid timeouts on CIs.
 # This should have no other affect on the build. A user
