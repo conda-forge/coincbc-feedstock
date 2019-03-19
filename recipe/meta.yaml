@@ -5,7 +5,6 @@
     {% set libext = ".dylib" %}
 {% endif %}
 
-{% set variant = "openblas" %}
 
 
 package:
@@ -18,10 +17,9 @@ source:
   sha256: ccf12d67d5dbf40bf7363c30955938709f293f087d87cb78cac9d3db9f5bcf2b
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   features:
-    - blas_{{ variant }}
 
 requirements:
   build:
@@ -33,11 +31,9 @@ requirements:
     - {{ compiler('fortran') }}  # [unix]
     {% endif %}
   host:
-    - blas 1.1 {{ variant }}
-    - openblas
+    - libblas
+    - libcblas
   run:
-    - blas 1.1 {{ variant }}
-    - openblas
 
 test:
   commands:
