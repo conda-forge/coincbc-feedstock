@@ -1,4 +1,4 @@
-{% set version = "2.10.2" %}
+{% set version = "2.10.3" %}
 {% if linux %}
     {% set libext = ".so" %}
 {% else %}
@@ -14,7 +14,7 @@ package:
 source:
   fn: Cbc-{{ version }}.tgz
   url: http://www.coin-or.org/download/source/Cbc/Cbc-{{ version }}.tgz
-  sha256: 63732a098ef1da329547b41cacce1e37be16f3afab74ddd534042e6be0ec2b3b
+  sha256: ad388357129497c1cc3be50c3707b1995fddf0a4188abc8e3669173f0179ecff
 
 build:
   number: 0
