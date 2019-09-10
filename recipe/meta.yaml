@@ -10,8 +10,10 @@ source:
   sha256: ad388357129497c1cc3be50c3707b1995fddf0a4188abc8e3669173f0179ecff
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
+  run_exports:
+    - {{ pin_subpackage('coincbc', max_pin='x.x') }}
 
 requirements:
   build:
