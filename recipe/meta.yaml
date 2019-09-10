@@ -1,11 +1,4 @@
 {% set version = "2.10.3" %}
-{% if linux %}
-    {% set libext = ".so" %}
-{% else %}
-    {% set libext = ".dylib" %}
-{% endif %}
-
-
 
 package:
   name: coincbc
@@ -17,37 +10,33 @@ source:
   sha256: ad388357129497c1cc3be50c3707b1995fddf0a4188abc8e3669173f0179ecff
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
-  features:
+  run_exports:
+    - {{ pin_subpackage('coincbc', max_pin='x.x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    {% if 'toolchain' in compiler('c') %}
-    - {{ compiler('fortran') }}  # [osx]
-    {% else %}
-    - {{ compiler('fortran') }}  # [unix]
-    {% endif %}
+    - {{ compiler('fortran') }}
   host:
     - libblas
     - libcblas
     - liblapack
-  run:
 
 test:
   commands:
-    - test -f "${PREFIX}/lib/libCbc{{ libext }}"
-    - test -f "${PREFIX}/lib/libCbcSolver{{ libext }}"
-    - test -f "${PREFIX}/lib/libCgl{{ libext }}"
-    - test -f "${PREFIX}/lib/libClp{{ libext }}"
-    - test -f "${PREFIX}/lib/libClpSolver{{ libext }}"
-    - test -f "${PREFIX}/lib/libCoinUtils{{ libext }}"
-    - test -f "${PREFIX}/lib/libOsi{{ libext }}"
-    - test -f "${PREFIX}/lib/libOsiCbc{{ libext }}"
-    - test -f "${PREFIX}/lib/libOsiClp{{ libext }}"
-    - test -f "${PREFIX}/lib/libOsiCommonTests{{ libext }}"
+    - test -f "${PREFIX}/lib/libCbc${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libCbcSolver${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libCgl${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libClp${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libClpSolver${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libCoinUtils${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libOsi${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libOsiCbc${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libOsiClp${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libOsiCommonTests${SHLIB_EXT}"
 
 about:
   home: http://www.coin-or.org/
