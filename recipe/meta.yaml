@@ -22,7 +22,6 @@ requirements:
     - libblas
     - libcblas
     - liblapack
-  run:
 
 test:
   commands:
