@@ -4,7 +4,11 @@ set -e
 UNAME="$(uname)"
 export CFLAGS="${CFLAGS} -O3"
 export CXXFLAGS="${CXXFLAGS} -O3"
-CXXFLAGS="${CXXFLAGS//-std=c++17/-std=c++11}"
+export CXXFLAGS="${CXXFLAGS//-std=c++17/-std=c++11}"
+
+if [ "${UNAME}" == "Linux" ]; then
+  export FLIBS="-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm"
+fi
 
 # Use only 1 thread with OpenBLAS to avoid timeouts on CIs.
 # This should have no other affect on the build. A user
@@ -19,7 +23,7 @@ WITH_LAPACK_LIB="-L${PREFIX}/lib -llapack"
   --with-blas-lib="${WITH_BLAS_LIB}" \
   --with-lapack-lib="${WITH_LAPACK_LIB}" \
   --enable-cbc-parallel \
-  || { cat config.log; exit 1; }
+  || { echo "PRINTING CONFIG.LOG"; cat config.log; echo "PRINTING CoinUtils/CONFIG.LOG"; cat CoinUtils/config.log; exit 1; }
 make -j "${CPU_COUNT}"
 if [ "${UNAME}" == "Linux" ]; then
   make test
