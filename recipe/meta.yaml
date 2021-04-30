@@ -5,7 +5,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: Cbc-{{ version }}.tgz
   url: http://www.coin-or.org/download/source/Cbc/Cbc-{{ version }}.tgz
   sha256: da1a945648679b21ba56b454b81e939451dc7951d9beb3c3e14f18f64dde6972
 
@@ -28,6 +27,8 @@ requirements:
     - liblapack
 
 test:
+  files:
+    - test.lp
   commands:
     - test -f "${PREFIX}/lib/libCbc${SHLIB_EXT}"
     - test -f "${PREFIX}/lib/libCbcSolver${SHLIB_EXT}"
@@ -39,6 +40,7 @@ test:
     - test -f "${PREFIX}/lib/libOsiCbc${SHLIB_EXT}"
     - test -f "${PREFIX}/lib/libOsiClp${SHLIB_EXT}"
     - test -f "${PREFIX}/lib/libOsiCommonTests${SHLIB_EXT}"
+    - cbc test.lp solve solu - | tr -s ' ' | grep '1 y 1 0'
 
 about:
   home: http://www.coin-or.org/
