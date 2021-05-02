@@ -7,5 +7,5 @@ Bounds
   x >= 0
   y >= 0
 Generals
-  x y 
+  x y
 End
