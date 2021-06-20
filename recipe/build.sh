@@ -17,6 +17,10 @@ cp $BUILD_PREFIX/share/gnuconfig/config.* ./Osi
 cp $BUILD_PREFIX/share/gnuconfig/config.* ./CoinUtils
 set -e
 
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
+  cd ThirdParty/ASL && ./get.ASL && cd -
+fi
+
 UNAME="$(uname)"
 export CFLAGS="${CFLAGS} -O3"
 export CXXFLAGS="${CXXFLAGS} -O3"

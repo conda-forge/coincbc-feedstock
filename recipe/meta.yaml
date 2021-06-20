@@ -9,7 +9,7 @@ source:
   sha256: da1a945648679b21ba56b454b81e939451dc7951d9beb3c3e14f18f64dde6972
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('coincbc', max_pin='x.x') }}
@@ -22,6 +22,7 @@ requirements:
     - {{ compiler('fortran') }}
     - make
     - pkg-config
+    - wget
   host:
     - libblas
     - libcblas
@@ -41,12 +42,13 @@ test:
     - test -f "${PREFIX}/lib/libOsiCbc${SHLIB_EXT}"
     - test -f "${PREFIX}/lib/libOsiClp${SHLIB_EXT}"
     - test -f "${PREFIX}/lib/libOsiCommonTests${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/libcoinasl${SHLIB_EXT}"  # [not (osx and arm64)]
     - cbc -import test.lp -solve -solution '$' | tr -s ' ' | grep '1 y 1 0'
     - cbc test.lp solve solution '$' | tr -s ' ' | grep '1 y 1 0'
 
 about:
   home: http://www.coin-or.org/
-  license: Eclipse v1.0
+  license: EPL-1.0
   summary: Cbc (Coin-or branch and cut) is an open-source mixed integer programming solver written in C++.
 
 extra:
@@ -54,3 +56,4 @@ extra:
     - scopatz
     - gidden
     - whart222
+    - jschueller
