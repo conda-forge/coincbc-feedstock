@@ -46,7 +46,7 @@ test:
 
 about:
   home: http://www.coin-or.org/
-  license: Eclipse v1.0
+  license: EPL-1.0
   summary: Cbc (Coin-or branch and cut) is an open-source mixed integer programming solver written in C++.
 
 extra:
@@ -54,3 +54,4 @@ extra:
     - scopatz
     - gidden
     - whart222
+    - jschueller
