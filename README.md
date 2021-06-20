@@ -3,7 +3,7 @@ About coincbc
 
 Home: http://www.coin-or.org/
 
-Package license: Eclipse v1.0
+Package license: EPL-1.0
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/coincbc-feedstock/blob/master/LICENSE.txt)
 
@@ -163,6 +163,7 @@ Feedstock Maintainers
 =====================
 
 * [@gidden](https://github.com/gidden/)
+* [@jschueller](https://github.com/jschueller/)
 * [@scopatz](https://github.com/scopatz/)
 * [@whart222](https://github.com/whart222/)
 
